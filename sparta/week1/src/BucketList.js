@@ -34,7 +34,12 @@ const BucketList = (props) => {
                 <span className="list-target">{list}</span>에 대해 얼마나 알고
                 있을까?
               </div>
-              <input className="input-box" type="text" placeholder=" 내 이름" />
+              <input
+                className="input-box"
+                type="text"
+                placeholder=" 내 이름"
+                ref={props.text}
+              />
             </div>
           )
         })
