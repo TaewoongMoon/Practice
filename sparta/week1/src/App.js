@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from './logo.svg'
+// import logo from './logo.svg'
 // BucketList 컴포넌트를 import 해옵니다.
 // import [컴포넌트 명] from [컴포넌트가 있는 파일경로];
 import BucketList from './BucketList'
@@ -13,6 +13,15 @@ class App extends React.Component {
     this.state = {
       list: ['르탄이'],
     }
+    this.text = React.createRef()
+  }
+
+  componentDidMount() {
+    console.log(this.text)
+  }
+
+  componentDidUpdate() {
+    console.log(this.text)
   }
 
   // 랜더 함수 안에 리액트 엘리먼트를 넣어줍니다!
@@ -26,7 +35,7 @@ class App extends React.Component {
           </div>
           {/* 컴포넌트를 넣어줍니다. */}
           {/* <컴포넌트 명 [props 명]={넘겨줄 것(리스트, 문자열, 숫자, ...)}/> */}
-          <BucketList list={this.state.list} />
+          <BucketList list={this.state.list} text={this.text} />
         </div>
       </div>
     )
