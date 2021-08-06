@@ -1,7 +1,9 @@
 import React from 'react'
 
 const Cat = (props) => {
-  return <div>고양이 화면이에요</div>
+  const { params } = props.match
+  console.log(params.cat_name)
+  return <div>내 고양이 이름은 {params.cat_name}입니다.</div>
 }
 
 export default Cat

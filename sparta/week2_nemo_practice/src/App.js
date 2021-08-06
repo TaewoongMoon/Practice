@@ -1,7 +1,6 @@
 import React from 'react'
 // import logo from './logo.svg'
 import './App.css'
-import Nemo from './Nemo'
 
 class App extends React.Component {
   constructor(props) {

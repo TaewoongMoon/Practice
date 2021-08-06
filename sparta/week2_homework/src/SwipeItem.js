@@ -94,7 +94,7 @@ const SwipeItem = React.memo(({ onSwipe }) => {
         current_coordinate.y - coordinate.start_y + 'px'
     }
 
-    const touchCancel = (e) => {}
+    const touchCancel = () => {}
 
     swipe_div.current.addEventListener('touchstart', touchStart)
     swipe_div.current.addEventListener('touchmove', touchMove)

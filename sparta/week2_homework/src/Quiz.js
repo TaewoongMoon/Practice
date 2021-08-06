@@ -1,9 +1,6 @@
 import { useState } from 'react'
 import styled from 'styled-components'
-import TinderCard from 'react-tinder-card'
 import SwipeItem from './SwipeItem'
-
-const img = './scc_img01.png'
 
 const Quiz = (props) => {
   const list = props.list
