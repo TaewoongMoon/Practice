@@ -9,6 +9,7 @@ import styled from 'styled-components'
 import Detail from './Detail'
 import { connect } from 'react-redux'
 import { loadBucket, createBucket } from './redux/module/bucket'
+
 const mapStateToProps = (state) => {
   return { bucket_list: state.bucket.list }
 }
@@ -25,22 +26,14 @@ const mapDispatchToProps = (dispatch) => {
 class App extends React.Component {
   constructor(props) {
     super(props)
-    console.log(props.create)
     // App 컴포넌트의 state를 정의해줍니다.
     this.state = {}
-    this.textChange = this.textChange.bind(this)
     this.addBucketList = this.addBucketList.bind(this)
     this.text = React.createRef()
     // ref는 이렇게 선언합니다!
   }
 
-  componentDidMount() {
-    console.log(this.state.text)
-  }
-
-  textChange(event) {
-    this.setState({ text: event.target.value })
-  }
+  componentDidMount() {}
 
   addBucketList() {
     // let list = this.state.list
@@ -74,7 +67,7 @@ class App extends React.Component {
               />
             )}
           />
-          <Route path="/detail" component={Detail} />
+          <Route path="/detail/:index" component={Detail} />
         </Container>
         {/* 인풋박스와 추가하기 버튼을 넣어줬어요. */}
         <Input>
