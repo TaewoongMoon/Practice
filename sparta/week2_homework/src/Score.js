@@ -4,7 +4,7 @@ import { addRank } from './redux/modules/rank'
 const Score = (props) => {
   const name = useSelector((state) => state.quiz.name)
   const score_texts = useSelector((state) => state.quiz.score_texts)
-  const answers = useSelector((state) => state.quiz.answers)
+  const answers = useSelector((state, index) => state.quiz.answers)
 
   let correct = answers.filter((answer) => {
     return answer
