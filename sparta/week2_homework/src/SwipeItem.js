@@ -5,7 +5,6 @@ const img = './scc_img01.png'
 
 const SwipeItem = React.memo(({ onSwipe }) => {
   const swipe_div = React.useRef(null)
-
   let swipe_status = 'ready'
   let target_classname = ''
   let coordinate = {
@@ -15,6 +14,7 @@ const SwipeItem = React.memo(({ onSwipe }) => {
     end_y: 0,
   }
   React.useEffect(() => {
+    console.log('swipe_div', swipe_div.current)
     const reset = () => {
       swipe_status = 'ready'
       coordinate = {
