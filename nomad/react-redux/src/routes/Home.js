@@ -4,8 +4,8 @@ import ToDo from "../ToDo";
 import { actionCreators } from "./Store";
 
 const Home = (props) => {
-  // console.log(props);
-  const [text, setText] = useState("");
+  console.log("props", props);
+  const [text, setText] = useState(null);
   function onChange(e) {
     setText(e.target.value);
   }
