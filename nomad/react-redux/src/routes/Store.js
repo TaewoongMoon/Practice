@@ -1,9 +1,10 @@
-import { createStore } from "redux";
-import { createAction, createReducer } from "@reduxjs/toolkit";
+import { combineReducers } from "redux";
+import { configureStore, createAction, createReducer } from "@reduxjs/toolkit";
+import { pokemonApi } from "./PokemonApi";
 
 const addTodo = createAction("ADD");
 const deleteToDo = createAction("DELETE");
-
+const pokemonApiTest = createAction("POKEMONAPITEST");
 // const reducer = (state = [], action) => {
 //   switch (action.type) {
 //     case addTodo.type:
@@ -17,7 +18,7 @@ const deleteToDo = createAction("DELETE");
 
 const reducer = createReducer([], {
   [addTodo]: (state, action) => {
-    state.push({ text: action.payload, id: parseInt(Date.now()) });
+    state.push({ text: action.payload, id: Date.now() });
   },
   [deleteToDo]: (state, action) => {
     return state.filter(
@@ -26,11 +27,25 @@ const reducer = createReducer([], {
   },
 });
 
-const store = createStore(reducer);
+const pokemonReducer = createReducer([], {
+  [pokemonApi.reducerPath]: pokemonApi.reducer,
+});
+
+const combinedReducers = combineReducers({ reducer, pokemonReducer });
+
+const store = configureStore({
+  reducer: {
+    combinedReducers,
+    [pokemonApi.reducerPath]: pokemonApi.reducer,
+  },
+  // middleware: (getDefaultMiddleware) =>
+  //   getDefaultMiddleware().concat(pokemonApi.middleware),
+});
 
 export const actionCreators = {
   addTodo,
   deleteToDo,
+  pokemonApiTest,
 };
 
 export default store;

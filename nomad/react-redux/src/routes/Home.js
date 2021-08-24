@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import ToDo from "../ToDo";
+import ToDo from "./ToDo";
 import { actionCreators } from "./Store";
 
 const Home = (props) => {
   console.log("props", props);
-  const [text, setText] = useState(null);
+  const [text, setText] = useState("");
   function onChange(e) {
     setText(e.target.value);
   }
@@ -21,8 +21,8 @@ const Home = (props) => {
         <input type="text" value={text} onChange={onChange} />
         <button>Add</button>
         <ul>
-          {props.toDos.map((toDo, index) => (
-            <ToDo key={index} {...toDo} />
+          {props.toDos.combinedReducers.reducer.map((toDo) => (
+            <ToDo {...toDo} key={toDo.id} />
           ))}
         </ul>
       </form>

@@ -10,9 +10,13 @@ function mapStateToProps(state, ownProps) {
       params: { id },
     },
   } = ownProps;
-  console.log(state);
+  console.log("state", state);
   console.log(id);
-  return { toDo: state.find((toDo) => toDo.id === parseInt(id)) };
+  return {
+    toDo: state.combinedReducers.reducer.find(
+      (toDo) => toDo.id === parseInt(id)
+    ),
+  };
 }
 
 export default connect(mapStateToProps)(Detail);

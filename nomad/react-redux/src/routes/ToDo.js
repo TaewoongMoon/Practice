@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { actionCreators } from "./routes/Store";
+import { actionCreators } from "./Store";
 
 const ToDo = ({ text, onBtnClick, id }) => {
   return (
