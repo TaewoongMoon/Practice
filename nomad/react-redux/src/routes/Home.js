@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import ToDo from "./ToDo";
-import { actionCreators } from "./Store";
+import store, { actionCreators } from "./Store";
 
 const Home = (props) => {
   console.log("props", props);

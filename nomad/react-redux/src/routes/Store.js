@@ -31,7 +31,7 @@ const pokemonReducer = createReducer([], {
   [pokemonApi.reducerPath]: pokemonApi.reducer,
 });
 
-const combinedReducers = combineReducers({ reducer, pokemonReducer });
+const combinedReducers = combineReducers({ reducer });
 
 const store = configureStore({
   reducer: {
